@@ -34,6 +34,13 @@ app.patch("/books/:id", (req, res) => {
   res.json(info);
 });
 
+app.delete("/books/:id", (req, res) => {
+  const { id } = req.params;
+  const statement = db.prepare(`DELETE FROM books WHERE id = ?`);
+  const info = statement.run(id);
+  res.json(info);
+});
+
 app.post("/new", (req, res) => {
   const { title, description } = req.body;
   const statement = db.prepare(
