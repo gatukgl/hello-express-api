@@ -4,7 +4,11 @@ const app = express();
 const port = 3000;
 
 app.get("/", (req, res) => {
-  res.send("Hello world");
+  const returnValue = {
+    title: "Javascrip Bonus",
+    description: "Lorem ipsum",
+  };
+  res.json(returnValue);
 });
 
 app.listen(port, () => {
