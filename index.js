@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
   res.json(returnValue);
 });
 
-app.get("books/:id", (req, res) => {
+app.get("/books/:id", (req, res) => {
   const { id } = req.params;
   const statement = db.prepare(`SELECT * FROM books WHERE id = ${id}`);
   const book = statement.get();
