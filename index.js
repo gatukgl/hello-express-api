@@ -13,6 +13,12 @@ app.get("/", (req, res) => {
   res.json(returnValue);
 });
 
+app.get("/books", (req, res) => {
+    const statement = db.prepare("SELECT * from books")
+    const books = statement.all()
+    res.json(books)
+})
+
 app.post("/new", (req, res) => {
   const { title, description } = req.body;
   const statement = db.prepare(
